@@ -5,22 +5,22 @@
 class Ysr < Formula
   desc "A tool to manage template files with external stores."
   homepage "https://github.com/dwango/yashiro"
-  version "0.2.0"
+  version "0.2.1"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/dwango/yashiro/releases/download/v0.2.0/ysr-darwin-arm64.tar.gz"
-      sha256 "77378a0cbe29b5c7664435e20f4706bb4bb5889e7fe9f64b325301e89357e51a"
+    if Hardware::CPU.intel?
+      url "https://github.com/dwango/yashiro/releases/download/v0.2.1/ysr-darwin-amd64.tar.gz"
+      sha256 "1a6ce000155aaa8b3b1083676bd7d8eb5c52900db85cc4d95ac1a1fe2c7f1699"
 
       def install
         bin.install "ysr"
         generate_completions_from_executable(bin/"ysr", "completion", base_name: "ysr")
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/dwango/yashiro/releases/download/v0.2.0/ysr-darwin-amd64.tar.gz"
-      sha256 "0f407fbbc4ebe6817a2086a0535ad3899a90662d47c628eb11de1cfc012617c8"
+    if Hardware::CPU.arm?
+      url "https://github.com/dwango/yashiro/releases/download/v0.2.1/ysr-darwin-arm64.tar.gz"
+      sha256 "bfdc22cbc8b5895e4595484d65b2be315aaf600e4c03ba5c17d2932f5e27aaa0"
 
       def install
         bin.install "ysr"
@@ -30,18 +30,18 @@ class Ysr < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dwango/yashiro/releases/download/v0.2.0/ysr-linux-arm64.tar.gz"
-      sha256 "b65f088509f8c86676f1e09f3a36732e516e3583ddd5fa11e2f1cdea506a7d40"
+    if Hardware::CPU.intel?
+      url "https://github.com/dwango/yashiro/releases/download/v0.2.1/ysr-linux-amd64.tar.gz"
+      sha256 "f3325f0cd726c234c94933b8c3e4f7fb9433687ac252577eb11f68352691c4bd"
 
       def install
         bin.install "ysr"
         generate_completions_from_executable(bin/"ysr", "completion", base_name: "ysr")
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/dwango/yashiro/releases/download/v0.2.0/ysr-linux-amd64.tar.gz"
-      sha256 "917e6e5e93214e332f195b99de0f0810afa10f4d4263372b2fc473bdb99581b5"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/dwango/yashiro/releases/download/v0.2.1/ysr-linux-arm64.tar.gz"
+      sha256 "0da0e6d860b996653bec46eae434737becf4feb8c146fd8812c22bc690f5cd09"
 
       def install
         bin.install "ysr"
@@ -52,6 +52,6 @@ class Ysr < Formula
 
   test do
     version_output = shell_output("#{bin}/ysr version")
-    assert_match "0.2.0", version_output
+    assert_match "0.2.1", version_output
   end
 end
