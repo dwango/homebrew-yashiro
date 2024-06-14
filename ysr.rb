@@ -5,13 +5,13 @@
 class Ysr < Formula
   desc "A tool to manage template files with external stores."
   homepage "https://github.com/dwango/yashiro"
-  version "0.4.0"
+  version "0.5.0"
   license "Apache-2.0"
 
   on_macos do
     on_intel do
-      url "https://github.com/dwango/yashiro/releases/download/v0.4.0/ysr-darwin-amd64.tar.gz"
-      sha256 "55951584b391fe7b72be918caf5dc6244fdb4efd1efd34ee6a85f5de20d60788"
+      url "https://github.com/dwango/yashiro/releases/download/v0.5.0/ysr-darwin-amd64.tar.gz"
+      sha256 "242aa31cf9b6f893061d5d9d3f57db24b9af7f03619043b66a0efb79b8144aee"
 
       def install
         bin.install "ysr"
@@ -19,8 +19,8 @@ class Ysr < Formula
       end
     end
     on_arm do
-      url "https://github.com/dwango/yashiro/releases/download/v0.4.0/ysr-darwin-arm64.tar.gz"
-      sha256 "a84f5f681ddffac62825e7c432b949f4eb442e60d6d0871e98047f63acc8d82e"
+      url "https://github.com/dwango/yashiro/releases/download/v0.5.0/ysr-darwin-arm64.tar.gz"
+      sha256 "0facc9ab0423149a5e56eb8a975e92ebd5dbb6f832581ec79578d8783b9a0293"
 
       def install
         bin.install "ysr"
@@ -32,8 +32,8 @@ class Ysr < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/dwango/yashiro/releases/download/v0.4.0/ysr-linux-amd64.tar.gz"
-        sha256 "3b95b80b723fab878f0a2f06dc91f2e26905b7ffd64553ddf7fc9fa27a33736d"
+        url "https://github.com/dwango/yashiro/releases/download/v0.5.0/ysr-linux-amd64.tar.gz"
+        sha256 "14bb0f0dd0d8328f7da6aefa3b8af0170267a983d03e821fb8898e3c25e08a21"
 
         def install
           bin.install "ysr"
@@ -43,8 +43,8 @@ class Ysr < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/dwango/yashiro/releases/download/v0.4.0/ysr-linux-arm64.tar.gz"
-        sha256 "b121300d5f329b5a5db69b64c213ff533c140af85415ebd44511ac47682daf77"
+        url "https://github.com/dwango/yashiro/releases/download/v0.5.0/ysr-linux-arm64.tar.gz"
+        sha256 "25c126cc3a41e924c77599cdda345fdb42a05adc756270d945fedfef48e508f1"
 
         def install
           bin.install "ysr"
@@ -56,6 +56,6 @@ class Ysr < Formula
 
   test do
     version_output = shell_output("#{bin}/ysr version")
-    assert_match "0.4.0", version_output
+    assert_match "0.5.0", version_output
   end
 end
